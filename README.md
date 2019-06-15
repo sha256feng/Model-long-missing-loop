@@ -18,3 +18,17 @@ Modeller script is mainly based on following link: https://salilab.org/modeller/
 
 	- Loop modeling results: loops forming a knot -- need to fix 
   Two segments have knotted structure of peptides. In order to prepare a cleaner version where there is no such problem, I use CHARMM script to solve this bad penetration issues. The program requires feeding of PSF and CRD files. So I generated PSF and CRD file firstly by CHARMM-GUI's PDBReader. Later I used following script to rotate the loops and did some minimization to avoid clash and bad angles.
+
+# Solve ring penetration issue
+
+**Read input structures**:  
+&nbsp;&nbsp; - step1_pdbreader.psf  
+&nbsp;&nbsp; - step1_pdbreader.crd  
+  
+**Processing CHARMM script**:  
+&nbsp;&nbsp; - step2_pene_solve.inp
+
+Principle:  
+- Set some parts movable and others fixed;  
+- Rotate, translate the movable part;  
+- Local minimization first, then global minimization;
