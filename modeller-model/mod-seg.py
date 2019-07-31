@@ -12,6 +12,7 @@ class MyLoop(loopmodel):
     # This routine picks the residues to be refined by loop modeling
     def select_atoms(self):
         # Two residue ranges (both will be refined simultaneously)
+        # may need to adjust the terminal aa id a bit according to result;
         return selection(self.residue_range('487:', '515:') ,
                          self.residue_range('342:', '354:') ,
                          self.residue_range('619:', '624:'))
@@ -27,6 +28,6 @@ a.starting_model= 1                 # index of the first model
 a.ending_model  = 1                 # index of the last model
 
 a.loop.starting_model = 1           # First loop model
-a.loop.ending_model   = 2           # Last loop model
+a.loop.ending_model   = 2           # Last loop model: generate 2 model in total
 
 a.make()                            # do modeling and loop refinement
